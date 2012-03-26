@@ -23,7 +23,7 @@
 
 	// sinusoide
 
-	var domain = DOMAIN([[0,2*Math.PI]])([100]);
+	var domain = DOMAIN([[0,4*Math.PI]])([1000]);
 	var mapping = function(p){
 		var u = p[0];
 		return [u, Math.sin(u)];
@@ -31,3 +31,4 @@
 
 	var mapped = MAP(mapping)(domain)
 	DRAW(mapped);
+	COLOR([1,0,0])(mapped)
