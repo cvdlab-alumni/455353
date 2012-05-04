@@ -1,7 +1,7 @@
 
 	
 	var d = DOMAIN([[1.5,5.5]])([4])
-	var d2 = DOMAIN([[1.5,5.5],[1,3]])([4,2])
+	var d2 = DOMAIN([[0,4],[0,4]])([4,4])
 	var d3 = DOMAIN([[1,5],[1,5],[1,5]])([3,3,3])
 
 	// tralazione
@@ -125,7 +125,7 @@ function sfera(g){
 		} 
 	var mapped = MAP(drawSfera)(domain)
 	DRAW(mapped);
-	return COLOR([1,1,1])(mapped);
+	COLOR([1,1,1])(mapped);
 
 //prova cupola
 			var domain = DOMAIN([[0,2*PI],[1,5]])([100,2]);
@@ -139,3 +139,6 @@ function sfera(g){
 	var cilindro = MAP(drawCircle)(domain)
 	DRAW(cilindro);
 	COLOR([1,0,0])(cilindro);
+
+
+
