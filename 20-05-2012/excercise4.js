@@ -82,6 +82,10 @@ var ruota2p = T([0,1,2])([7.62,-0.55,0])(COLOR([1,0,0])(TORUS_SURFACE([0.01,0.05
 var struct1p = (STRUCT([surfcarrello,ruota1p,ruota2p]));
 DRAW(struct1p);
 
+//Prova Bombe
+
+//Fuselage
+
 var domain1 = INTERVALS(1)(30);
 var domain2 = DOMAIN([[0,1],[0,1]])([15,30]);
 
@@ -196,6 +200,21 @@ var surftappo2 = MAP(tappo2)(domain2);
 
 var casco = T([0,1])([3.5,0.4])(COLOR([1,0,0])(STRUCT([surf18,surf27,surftappo,surftappo2])))
 DRAW(casco)
+
+//Griglia Vetro
+
+var curvaGriglia1 = CUBIC_HERMITE(S0)([[2.5,0.35,0.35],[2.5,0.35,-0.35],[0,0.8,0],[0,-0.8,0]])
+var curvaGriglia2 = CUBIC_HERMITE(S0)([[2.6,0.35,0.35],[2.6,0.35,-0.35],[0,1.2,0],[0,-1.2,0]])
+var curvaGriglia3 = CUBIC_HERMITE(S0)([[3.75,0.30,0.38],[3.75,0.30,-0.38],[0.8,1.85,0],[-0.8,-1.85,0]])
+var curvaGriglia4 = CUBIC_HERMITE(S0)([[3.65,0.30,0.38],[3.65,0.30,-0.38],[0.8,1.85,0],[-0.8,-1.85,0]])
+
+var surfGriglia1 = BEZIER(S1)([curvaGriglia1,curvaGriglia2]);
+var surfGrigliaAvanti =COLOR([0])(MAP(surfGriglia1)(domain2));
+DRAW(surfGrigliaAvanti);
+
+var surfGriglia2 = BEZIER(S1)([curvaGriglia3,curvaGriglia4]);
+var surfGrigliaDietro =COLOR([0])(MAP(surfGriglia2)(domain2));
+DRAW(surfGrigliaDietro);
 
 //Ali posteriori
 
