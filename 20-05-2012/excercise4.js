@@ -82,7 +82,21 @@ var ruota2p = T([0,1,2])([7.62,-0.55,0])(COLOR([1,0,0])(TORUS_SURFACE([0.01,0.05
 var struct1p = (STRUCT([surfcarrello,ruota1p,ruota2p]));
 DRAW(struct1p);
 
-//Prova Bombe
+//Prova Bombe ACME
+	var curvabomba1 = CUBIC_HERMITE(S0)([[0,0,0],[1.5,0,0],[0,1,0],[0,-0.5,0]])
+	var curvabomba2 = CUBIC_HERMITE(S0)([[0,0,0],[1.5,0,0],[0,-1,0],[0,0.5,0]])
+
+	var supbomba1 = CUBIC_HERMITE(S1)([curvabomba1,curvabomba2,[0,0,0.8],[0,0,-0.8]]);
+	var surfbomba1= MAP(supbomba1)(domain2);
+
+	var supbomba2 = CUBIC_HERMITE(S1)([curvabomba1,curvabomba2,[0,0,-0.8],[0,0,0.8]]);
+	var surfbomba2= MAP(supbomba2)(domain2);
+
+	var bomba = T([0,1,2])([2.3,-0.45,2.5])(COLOR([1,1,1])(STRUCT([surfbomba1,surfbomba2])))
+	var bomba2 = T([0,1,2])([2.3,-0.45,-2.5])(COLOR([1,1,1])(STRUCT([surfbomba1,surfbomba2])))
+	
+	var bombardamento = STRUCT([bomba,bomba2]);
+	DRAW(bombardamento);
 
 //Fuselage
 
