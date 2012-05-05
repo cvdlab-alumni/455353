@@ -81,3 +81,6 @@ var ruota1p = T([0,1,2])([7.62,-0.55,0])(COLOR([0,0,0])(TORUS_SURFACE([0.05,0.1]
 var ruota2p = T([0,1,2])([7.62,-0.55,0])(COLOR([1,0,0])(TORUS_SURFACE([0.01,0.05])([30,30])));
 var struct1p = (STRUCT([surfcarrello,ruota1p,ruota2p]));
 DRAW(struct1p);
+
+//Prova Bombe
+

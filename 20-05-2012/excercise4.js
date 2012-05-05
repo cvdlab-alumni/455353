@@ -82,8 +82,6 @@ var ruota2p = T([0,1,2])([7.62,-0.55,0])(COLOR([1,0,0])(TORUS_SURFACE([0.01,0.05
 var struct1p = (STRUCT([surfcarrello,ruota1p,ruota2p]));
 DRAW(struct1p);
 
-//Fuselage
-
 var domain1 = INTERVALS(1)(30);
 var domain2 = DOMAIN([[0,1],[0,1]])([15,30]);
 
@@ -175,6 +173,29 @@ var pennacchio1 = T([0,1,2])([1.4,0.5,-0.05])(CUBOID([0.05,0.3,0.05]))
 var pennacchio2 = T([0,1,2])([4.5,0.5,-0.05])(CUBOID([0.05,0.7,0.05]))
 var pennacchi = COLOR([0])(STRUCT([pennacchio1,pennacchio2]))
 DRAW(pennacchi);
+
+//Pilota
+var knots1 = [0,0,0,1,2,3,3,3];
+var casco1 = NUBS(S0)(2)(knots1)([[-0.4,0,0],[-0.4,0,0.1],[0,0,0.3],[0.3,0,0.15],[0.3,0,0]]);
+var casco2 = NUBS(S0)(2)(knots1)([[-0.4,0,0],[-0.4,0,-0.1],[0,0,-0.3],[0.3,0,-0.15],[0.3,0,0]]);
+var casco3 = NUBS(S0)(2)(knots1)([[-0.45,0.1,0],[-0.45,0.1,-0.15],[0,0.1,-0.25],[0.3,0.1,-0.20],[0.3,0.1,0]]);
+var casco4 = NUBS(S0)(2)(knots1)([[-0.45,0.1,0],[-0.45,0.1,0.15],[0,0.1,0.25],[0.3,0.1,0.20],[0.3,0.1,0]]);
+var casco5 = NUBS(S0)(2)(knots1)([[-0.4,0.15,0],[-0.4,0.15,0.1],[0,0.15,0.3],[0.3,0.15,0.15],[0.3,0.15,0]]);
+var casco6 = NUBS(S0)(2)(knots1)([[-0.4,0.15,0],[-0.4,0.15,-0.1],[0,0.15,-0.2],[0.3,0.15,-0.15],[0.3,0.15,0]]);
+var casco7 = NUBS(S0)(2)(knots1)([[-0.2,0.3,0],[-0.1,0.3,-0.15],[0,0.3,-0.2],[0.2,0.3,-0.15],[0.2,0.3,0]]);
+var casco8 = NUBS(S0)(2)(knots1)([[-0.2,0.3,0],[-0.1,0.3,0.15],[0,0.3,0.2],[0.2,0.3,0.15],[0.2,0.3,0]]);
+
+var s18 = BEZIER(S1)([casco1,casco4,casco5,casco8]);
+var surf18 = MAP(s18)(domain2);
+var s27 = BEZIER(S1)([casco2,casco3,casco6,casco7]);
+var surf27 = MAP(s27)(domain2);
+var tappo = BEZIER(S1)([casco7,[0,0.3,0]]);
+var surftappo = MAP(tappo)(domain2);
+var tappo2 = BEZIER(S1)([casco8,[0,0.3,0]]);
+var surftappo2 = MAP(tappo2)(domain2);
+
+var casco = T([0,1])([3.5,0.4])(COLOR([1,0,0])(STRUCT([surf18,surf27,surftappo,surftappo2])))
+DRAW(casco)
 
 //Ali posteriori
 

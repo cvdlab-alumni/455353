@@ -20,10 +20,3 @@ var tettotrasp = BOUNDARY(COLOR([0,1,1,0.6])(tetto));
 var struct = STRUCT([muro1,muro2,muro3,tettotrasp]);
 DRAW(struct)
 
-var domain = PROD1x1([INTERVALS(1)(20),INTERVALS(1)(20)]);
-var c0 = BEZIER(S0)([[0,-2,0],[2.5,2,0],[7.5,2,0],[10,-2,0]]);
-var c1 = BEZIER(S0)([[0,4,9],[2.5,8,9],[7.5,8,9],[10,4,9]]);
-var c2 = BEZIER(S0)([[0,-2,18],[2.5,2,18],[7.5,2,18],[10,-2,18]]);
-var out = MAP(BEZIER(S1)([c0,c1,c2]))(domain);
-var out2 = COLOR([0,1,0,0.7])(out)
-DRAW(out2);
