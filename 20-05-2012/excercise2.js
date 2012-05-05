@@ -69,7 +69,7 @@ var curvev3 = MAP(curvavetro3)(domain1);
 
 var surfvetro = BEZIER(S1)([curvavetro,curvavetro2,curvavetro3]);
 var surfacevetro = MAP(surfvetro)(domain2);
-var vetro = COLOR([0.69,0.87,0.9])(surfacevetro)
+var vetro = COLOR([0.69,0.87,0.9,0.7])(surfacevetro)
 DRAW(vetro);
 
 //Bocchettone bottom
@@ -84,3 +84,10 @@ var bocchettone = BEZIER(S1)([b1,b01,b2,b3]);
 var bocchettonefinale = MAP(bocchettone)(domain2);
 var bocchettonefinale2 = T([0,1,2])([2,-0.75,-0.5])(COLOR([0.33,0.42,0.18])(bocchettonefinale))
 DRAW(bocchettonefinale2);
+
+
+//Pennacchi
+var pennacchio1 = T([0,1,2])([1.4,0.5,-0.05])(CUBOID([0.05,0.3,0.05]))
+var pennacchio2 = T([0,1,2])([4.5,0.5,-0.05])(CUBOID([0.05,0.7,0.05]))
+var pennacchi = COLOR([0])(STRUCT([pennacchio1,pennacchio2]))
+DRAW(pennacchi);

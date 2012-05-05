@@ -26,6 +26,8 @@ var out0 = COLOR([0.33,0.42,0.18])(STRUCT([surf0,surf1,surf2,solid1]))
 var outt = T([0,1,2])([2,-0.4,0.38])(out0)
 DRAW(outt);
 
+//L'Exercise 1 finisce qui...in tale file sono state messe però tutte le componenti relative all'ala.
+
 //Ala DX, ottenuta per specchio con asse Z
 var c1d = NUBS(S0)(2)(knots0)([[2.5,0.25,-0.5],[1.2,0.6,-0.5],[0.3,0.5,-0.5],[0,0.25,-0.5],[0.3,0,-0.5],[1.2,0,-0.5],[2.5,0.25,-0.5]]);
 var s0d = BEZIER(S1)([c0,c1d]);
@@ -46,6 +48,39 @@ var solid1d = MAP(s3d)(domain2);
 var out0d = COLOR([0.33,0.42,0.18])(STRUCT([surf0d,surf1d,surf2d,solid1d]))
 var outtd = T([0,1,2])([2,-0.4,-0.38])(out0d)
 DRAW(outtd);
+
+
+//Ruota Anteriore SX
+//Struttura: 
+
+var p1 = [[0,0],[0.4,1.1],[0.7,1.1],[0.6,0.3],[0.9,0],[0,0]]
+var pol1 = POLYLINE(p1);
+var struttura1 = EXTRUDE([0.1])(pol1);
+var ruota1 = T([0,1,2])([0.4,0,-0.1])(COLOR([0,0,0])(TORUS_SURFACE([0.1,0.2])([30,30])));
+var ruota2 = T([0,1,2])([0.4,0,-0.1])(COLOR([1,0,0])(TORUS_SURFACE([0.05,0.1])([30,30])));
+var ruota3 = T([0,1,2])([0.4,0,0.01])(COLOR([0])(TORUS_SURFACE([0.01,0.05])([30,30])));
+var struct1 = T([0,1,2])([2.5,-1.3,1])(STRUCT([struttura1,ruota1,ruota2,ruota3]));
+DRAW(struct1);
+
+
+//Ruota Anteriore DX
+var struttura2 = T([2])([-0.2])(struttura1); 
+var ruota1d = T([0,1,2])([0.4,0,-0.08])(COLOR([0,0,0])(TORUS_SURFACE([0.1,0.2])([30,30])));
+var ruota2d = T([0,1,2])([0.4,0,-0.08])(COLOR([1,0,0])(TORUS_SURFACE([0.05,0.1])([30,30])));
+var ruota3d = T([0,1,2])([0.4,0,-0.01])(COLOR([0])(TORUS_SURFACE([0.01,0.05])([30,30])));
+var struct1d = T([0,1,2])([2.5,-1.3,-1])(STRUCT([struttura2,ruota1d,ruota2d,ruota3d]));
+DRAW(struct1d);
+
+//Ruota post
+
+var curvasupporto1 = CUBIC_HERMITE(S0)([[7.6,-0.25,0.1],[7.6,-0.25,-0.1],[0,-1.5,0],[0,1.5,0]])
+var curvasupporto2 = CUBIC_HERMITE(S0)([[7.65,-0.25,0.1],[7.65,-0.25,-0.1],[0,-1.4,0],[0,1.4,0]])
+var carrellopost = BEZIER(S1)([curvasupporto1,curvasupporto2]);
+var surfcarrello = MAP(carrellopost)(domain2);
+var ruota1p = T([0,1,2])([7.62,-0.55,0])(COLOR([0,0,0])(TORUS_SURFACE([0.05,0.1])([30,30])));
+var ruota2p = T([0,1,2])([7.62,-0.55,0])(COLOR([1,0,0])(TORUS_SURFACE([0.01,0.05])([30,30])));
+var struct1p = (STRUCT([surfcarrello,ruota1p,ruota2p]));
+DRAW(struct1p);
 
 //Fuselage
 
@@ -118,7 +153,7 @@ var curvev3 = MAP(curvavetro3)(domain1);
 
 var surfvetro = BEZIER(S1)([curvavetro,curvavetro2,curvavetro3]);
 var surfacevetro = MAP(surfvetro)(domain2);
-var vetro = COLOR([0.69,0.87,0.9])(surfacevetro)
+var vetro = COLOR([0.69,0.87,0.9,0.7])(surfacevetro)
 DRAW(vetro);
 
 //Bocchettone bottom
@@ -133,6 +168,13 @@ var bocchettone = BEZIER(S1)([b1,b01,b2,b3]);
 var bocchettonefinale = MAP(bocchettone)(domain2);
 var bocchettonefinale2 = T([0,1,2])([2,-0.75,-0.5])(COLOR([0.33,0.42,0.18])(bocchettonefinale))
 DRAW(bocchettonefinale2);
+
+
+//Pennacchi
+var pennacchio1 = T([0,1,2])([1.4,0.5,-0.05])(CUBOID([0.05,0.3,0.05]))
+var pennacchio2 = T([0,1,2])([4.5,0.5,-0.05])(CUBOID([0.05,0.7,0.05]))
+var pennacchi = COLOR([0])(STRUCT([pennacchio1,pennacchio2]))
+DRAW(pennacchi);
 
 //Ali posteriori
 
