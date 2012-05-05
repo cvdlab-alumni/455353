@@ -1,3 +1,5 @@
+//Hawker Sea Hurricane Ib
+
 //Fuselage
 
 var domain1 = INTERVALS(1)(30);
