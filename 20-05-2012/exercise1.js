@@ -38,7 +38,8 @@ var surf2 = MAP(s2)(domain2);
 var s3 = CUBIC_HERMITE(S1)([c2,c3,[0,0,0],[0,0,0]]);
 var solid1 = MAP(s3)(domain2);
 
-var out0 = COLOR([1,1,1])(STRUCT([surf0,surf1,surf2,solid1]))
-DRAW(out0);
+var out0 = COLOR([0.33,0.42,0.18])(STRUCT([surf0,surf1,surf2,solid1]))
+var outt = T([0,1,2])([2,-0.4,0.38])(out0)
+DRAW(outt);
 
 

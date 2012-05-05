@@ -58,5 +58,29 @@ var surfe3 = MAP(se3)(domain2);
 var elica = COLOR([0])(STRUCT([surfe1,surfe2,surfe3]))
 DRAW(elica);
 
+//Vetro
 
+var curvavetro = CUBIC_HERMITE(S0)([[2.5,0.35,0.35],[2.5,0.35,-0.35],[0,0.8,0],[0,-0.8,0]])
+var curvev1 = MAP(curvavetro)(domain1);
+var curvavetro2 = CUBIC_HERMITE(S0)([[2.8,0.35,0.35],[2.8,0.35,-0.35],[0,2,0],[0,-2,0]])
+var curvev2 = MAP(curvavetro2)(domain1);
+var curvavetro3 = CUBIC_HERMITE(S0)([[3.75,0.30,0.35],[3.75,0.30,-0.35],[0.8,1.81,0],[-0.8,-1.81,0]])
+var curvev3 = MAP(curvavetro3)(domain1);
 
+var surfvetro = BEZIER(S1)([curvavetro,curvavetro2,curvavetro3]);
+var surfacevetro = MAP(surfvetro)(domain2);
+var vetro = COLOR([0.69,0.87,0.9])(surfacevetro)
+DRAW(vetro);
+
+//Bocchettone bottom
+var domain1 = INTERVALS(1)(30);
+var domain2 = DOMAIN([[0,1],[0,1]])([15,30]);
+var b1 = BEZIER(S0)([[0,0,0.45],[0,0,0.8],[0,0.3,0.8],[0,0.3,0.1],[0,0,0.1],[0,0,0.45]]);
+var b01 = BEZIER(S0)([[0.5,0,0.45],[0.5,0,0.8],[0.5,0.3,0.8],[0.5,0.3,0.1],[0.5,0,0.1],[0.5,0,0.45]]);
+var knots0 = [0,0,0,1,2,3,4,4,4];
+var b2 = NUBS(S0)(2)(knots0)([[1.0,0.2,0.45],[1.0,0.2,0.8],[1.0,0.3,0.8],[1.0,0.3,0.1],[1.0,0.2,0.1],[1.0,0.2,0.45]]);
+var b3 = NUBS(S0)(2)(knots0)([[1.3,0.2,0.45],[1.3,0.2,0.8],[1.3,0.3,0.8],[1.3,0.3,0.1],[1.3,0.2,0.1],[1.3,0.2,0.45]]);
+var bocchettone = BEZIER(S1)([b1,b01,b2,b3]);
+var bocchettonefinale = MAP(bocchettone)(domain2);
+var bocchettonefinale2 = T([0,1,2])([2,-0.75,-0.5])(COLOR([0.33,0.42,0.18])(bocchettonefinale))
+DRAW(bocchettonefinale2);
