@@ -1,21 +1,21 @@
 	// Gibson les paul
 
-var domain1 = INTERVALS(1)(12);
-var domain2 = DOMAIN([[0,1],[0,1]])([12,12]);
-var domain3 = DOMAIN([[0,1],[0,1],[0,1]])([12,12,5]);
+var domain1 = INTERVALS(1)(100);
+var domain2 = DOMAIN([[0,1],[0,1]])([30,30]);
+var domain3 = DOMAIN([[0,1],[0,1],[0,1]])([20,20,1]);
 
 //Body
-var knots0 = [0,0,0,1,2,3,4,5,6,7,8,9,9,9];
+var knots0 = [0,0,0,0,1,2,3,4,5,6,7,8,8,8,8];
 var knots1 = [0,0,0,1,2,3,4,5,6,7,8,8,8];
 var points = [[0,0,0],[-1.6,0.25,0],[-2,1.9,0],[-0.7,3,0],[-1.2,4.1,0],[-1.2,4.5,0],[-0.8,4.9,0],[-0.6,5,0],[-0.4,5,0],[-0.2,4.5,0],[0,4.5,0]]
-var c0 = NUBS(S0)(2)(knots0)(points);
+var c0 = NUBS(S0)(3)(knots0)(points);
 var curve0 = MAP(c0)(domain1);
 var points2 =  [[0,0,0],[1.6,0.25,0],[2,1.9,0],[0.7,3,0],[1.2,4.1,0],[1.2,4.5,0],[0.8,4.9,0],[0.6,4.8,0],[0.4,4.5,0],[0,4,0]]
 var c1 = NUBS(S0)(2)(knots1)(points2);
 var curve1 = MAP(c1)(domain1);
 var s0 = BEZIER(S1)([c0,[0,3.5,-0.1],c1]);	
 var points3 = [[0,0,0.5],[-1.6,0.25,0.5],[-2,1.9,0.5],[-0.7,3,0.5],[-1.2,4.1,0.5],[-1.2,4.5,0.5],[-0.8,4.9,0.5],[-0.6,5,0.5],[-0.4,5,0.5],[-0.2,4.5,0.5],[0,4.5,0.5]]
-var c3 = NUBS(S0)(2)(knots0)(points3);
+var c3 = NUBS(S0)(3)(knots0)(points3);
 var points4 =  [[0,0,0.5],[1.6,0.25,0.5],[2,1.9,0.5],[0.7,3,0.5],[1.2,4.1,0.5],[1.2,4.5,0.5],[0.8,4.9,0.5],[0.6,4.8,0.5],[0.4,4,0.5],[0,4.5,0.5]]
 var c4 = NUBS(S0)(2)(knots1)(points4);
 var s1 = BEZIER(S1)([c3,[0,4.2,0.7],c4]);
@@ -89,8 +89,8 @@ var s3 = BEZIER(S1)([basepaletta1,basepaletta2]);
 var congiunzione = BEZIER(S2)([s2,s3]);
 var congiunzione1 = (COLOR([0.15,0.15,0.15])(MAP(congiunzione)(domain3)));
 
-var basepaletta3 =  CUBIC_HERMITE(S0)([[0.3,5.4,0.05],[-0.3,5.4,0.05],[0,0,0],[0,0,0]])
-var basepaletta4 =  CUBIC_HERMITE(S0)([[0.3,5.4,-0.1],[-0.3,5.4,-0.1],[0,0,0],[0,0,0]])
+var basepaletta3 =  CUBIC_HERMITE(S0)([[0.4,5.4,0.05],[-0.4,5.4,0.05],[0,0,0],[0,0,0]])
+var basepaletta4 =  CUBIC_HERMITE(S0)([[0.4,5.4,-0.1],[-0.4,5.4,-0.1],[0,0,0],[0,0,0]])
 var s4 = BEZIER(S1)([basepaletta3,basepaletta4]);
 
 var basepaletta5 =  CUBIC_HERMITE(S0)([[0.25,5.5,-0.005],[-0.25,5.5,-0.005],[0,-0.2,0],[0,0.2,0]])
@@ -118,6 +118,12 @@ var sottoTienicorda6 = T([0,1,2])([-0.250,5.25,-0.13])(CUBOID([0.12,0.1,0.1]));
 
 	var palettacompleta = STRUCT([congiunzione1,paletta1,tieni,sottoTienicorda1,sottoTienicorda2
 		,sottoTienicorda3,sottoTienicorda4,sottoTienicorda5,sottoTienicorda6])
+
+//Chiavi di violino
+var knotsV0 = [0,0,0,0,1,2,3,4,5,6,7,8,8,8,8];
+var pointsV0 = []
+var cV0 = NUBS(S0)(3)(knotsV0)(pointsV0);
+var curveV0 = MAP(cV0)(domain1);
 
 
 //Frets
