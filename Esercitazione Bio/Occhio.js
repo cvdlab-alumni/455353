@@ -1,7 +1,7 @@
 //Occhio
 
-var domain1 = INTERVALS(1)(200);
-var domain2 = DOMAIN([[0,1],[0,1]])([100,100]);
+var domain1 = INTERVALS(1)(100);
+var domain2 = DOMAIN([[0,1],[0,1]])([50,50]);
 var domain3 = DOMAIN([[0,1],[0,1],[0,1]])([20,20,1]);
 
 function knots (point) {
@@ -235,7 +235,7 @@ var curveScleraInterna = [CnervoOtticoInternoRistringimento,CscleraInternaBegin,
 var scleraInterna = BEZIER(S1)(curveScleraInterna);
 
 var sclera = BEZIER(S2)([scleraEsterna,scleraInterna]);
-var scleraMap = COLOR([ 0.803922, 0.521569, 0.247059])(MAP(sclera)(domain3));
+var scleraMap = COLOR([ 1, 0.941176, 0.960784])(MAP(sclera)(domain3));
 DRAW(scleraMap)
 
 //var scleraSinistra = R([0,2])([PI])(scleraEsternaMap)
@@ -414,3 +414,62 @@ var curveSosprensoreCristallino2 = [CcristallinoMiddleHalf,[0,1.5,-0.5],[0,1.6,-
 var CcurveSosprensoreCristallino2 = BEZIER(S1)(curveSosprensoreCristallino2)
 var curveSosprensoreCristallino2Map = COLOR([1, 1, 0.941176,0.9])(MAP(CcurveSosprensoreCristallino2)(domain2))
 DRAW(curveSosprensoreCristallino2Map)
+
+
+//Coroide...fino all'inizio dell'iride
+var coroideBegin = [[0,3.6,0.5],[-0.6,3.6,0],[0,3.6,-0.5]]
+var knots49 = knots(coroideBegin);
+var CcoroideBegin = NUBS(S0)(2)(knots49)(coroideBegin);
+//var mapCcoroideBegin = MAP(CcoroideBegin)(domain1)
+//DRAW(mapCcoroideBegin)
+
+var coroideMiddle1 = [[0,3.4,1.1],[-1,3.4,0],[0,3.4,-1.1]]
+var CcoroideMiddle1 = NUBS(S0)(2)(knots49)(coroideMiddle1);
+//var mapCcoroideMiddle1 = MAP(CcoroideMiddle1)(domain1)
+//DRAW(mapCcoroideMiddle1)
+
+var coroideMiddle2 = [[0,3.2,1.2],[-1.2,3.2,0],[0,3.2,-1.2]]
+var CcoroideMiddle2 = NUBS(S0)(2)(knots49)(coroideMiddle2);
+//var mapCcoroideMiddle2 = MAP(CcoroideMiddle2)(domain1)
+//DRAW(mapCcoroideMiddle2)
+
+var coroideMiddle3 = [[0,3,1.3],[-1.3,3,0],[0,3,-1.3]]
+var CcoroideMiddle3 = NUBS(S0)(2)(knots49)(coroideMiddle3);
+//var mapCcoroideMiddle3 = MAP(CcoroideMiddle3)(domain1)
+//DRAW(mapCcoroideMiddle3)
+
+var coroideMiddle4 = [[0,2.8,1.4],[-1.3,2.8,0],[0,2.8,-1.4]]
+var CcoroideMiddle4 = NUBS(S0)(2)(knots49)(coroideMiddle4);
+//var mapCcoroideMiddle4 = MAP(CcoroideMiddle4)(domain1)
+//DRAW(mapCcoroideMiddle4)
+
+var coroideMiddle5 = [[0,2.2,1.4],[-1.3,2.2,0],[0,2.2,-1.4]]
+var CcoroideMiddle5 = NUBS(S0)(2)(knots49)(coroideMiddle5);
+//var mapCcoroideMiddle5 = MAP(CcoroideMiddle5)(domain1)
+//DRAW(mapCcoroideMiddle5)
+
+var coroideMiddle6 = [[0,2,1.3],[-1.3,2,0],[0,2,-1.3]]
+var CcoroideMiddle6 = NUBS(S0)(2)(knots49)(coroideMiddle6);
+//var mapCcoroideMiddle6 = MAP(CcoroideMiddle6)(domain1)
+//DRAW(mapCcoroideMiddle6)
+
+var coroideMiddle7 = [[0,1.8,1.1],[-1.2,1.8,0],[0,1.8,-1.1]]
+var CcoroideMiddle7 = NUBS(S0)(2)(knots49)(coroideMiddle7);
+//var mapCcoroideMiddle7 = MAP(CcoroideMiddle7)(domain1)
+//DRAW(mapCcoroideMiddle7)
+
+var coroideMiddle8 = [[0,1.5,1],[-1,1.5,0],[0,1.5,-1]]
+var CcoroideMiddle8 = NUBS(S0)(2)(knots24)(coroideMiddle8);
+//var mapCcoroideMiddle8 = MAP(CcoroideMiddle8)(domain1)
+//DRAW(mapCcoroideMiddle8)
+
+var curvecoroide = [CnervoOtticoEsternoRistringimento,CcoroideBegin,CcoroideMiddle1,CcoroideMiddle2,
+						  CcoroideMiddle3,CcoroideMiddle4,CcoroideMiddle5,CcoroideMiddle6,
+						  CcoroideMiddle7,CcoroideMiddle8]
+var coroide = BEZIER(S1)(curvecoroide);
+//var coroideMap = COLOR([ 0.576471, 0.439216, 0.858824])(MAP(coroide)(domain2))
+//DRAW(coroideMap)
+
+var coroideStrato = BEZIER(S2)([coroide,scleraInterna]);
+var coroideStratoMap = COLOR([ 0.576471, 0.439216, 0.858824])(MAP(coroideStrato)(domain3));
+DRAW(coroideStratoMap)
