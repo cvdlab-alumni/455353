@@ -208,10 +208,10 @@ var knots28 = knots(scleraInternaMiddle10);
 var CscleraInternaMiddle10 = NUBS(S0)(2)(knots28)(scleraInternaMiddle10);
 //var mapCscleraInternaMiddle10 = MAP(CscleraInternaMiddle10)(domain1)
 
-var corneaEsternaDestraBegin = [[0,1.15,0.4],[-0.15,1.15,0.4],[-0.4,1.15,0],[-0.15,1.15,-0.4],[0,1.15,-0.4]]
-var knots29 = knots(corneaEsternaDestraBegin);
-var CcorneaEsternaDestraBegin = NUBS(S0)(2)(knots29)(corneaEsternaDestraBegin);
-//var mapCcorneaEsternaDestraBegin = MAP(CcorneaEsternaDestraBegin)(domain1)
+var scleraEsternaMiddle11 = [[0,1.15,0.5],[-0.25,1.15,0.4],[-0.4,1.15,0],[-0.25,1.15,-0.4],[0,1.15,-0.5]]
+var knots29 = knots(scleraEsternaMiddle11);
+var CscleraEsternaMiddle11 = NUBS(S0)(2)(knots29)(scleraEsternaMiddle11);
+//var mapCscleraEsternaMiddle11 = MAP(CscleraEsternaMiddle11)(domain1)
 
 var scleraInternaMiddle11 = [[0,1.2,0.52],[-0.65,1.2,0],[0,1.2,-0.52]]
 var knots30 = knots(scleraInternaMiddle11);
@@ -223,7 +223,7 @@ var CscleraInternaMiddle11 = NUBS(S0)(2)(knots30)(scleraInternaMiddle11);
 var curveScleraEsterna = [CnervoOtticoEsternoRistringimento,CscleraEsternaBegin,CscleraEsternaMiddle1,CscleraInternaMiddle2,
 						  CscleraEsternaMiddle3,CscleraEsternaMiddle4,CscleraEsternaMiddle5,CscleraEsternaMiddle6,
 						  CscleraEsternaMiddle7,CscleraEsternaMiddle8,CscleraEsternaMiddle9,CscleraEsternaMiddle10,
-						  CcorneaEsternaDestraBegin]
+						  CscleraEsternaMiddle11]
 var scleraEsterna = BEZIER(S1)(curveScleraEsterna);
 var scleraEsternaMap = COLOR([1, 0.941176, 0.960784])(MAP(scleraEsterna)(domain2))
 DRAW(scleraEsternaMap)
@@ -235,21 +235,23 @@ var curveScleraInterna = [CnervoOtticoInternoRistringimento,CscleraInternaBegin,
 var scleraInterna = BEZIER(S1)(curveScleraInterna);
 
 var sclera = BEZIER(S2)([scleraEsterna,scleraInterna]);
-var scleraMap = COLOR([1, 0, 0])(MAP(sclera)(domain3));
+var scleraMap = COLOR([ 0.803922, 0.521569, 0.247059])(MAP(sclera)(domain3));
 DRAW(scleraMap)
 
 //var scleraSinistra = R([0,2])([PI])(scleraEsternaMap)
 //DRAW(scleraSinistra)
 
-// Iride....partiamo dalla fine della sclera
-//Lavoriamo sul lato destro
 
-var contornoIrideRaggioEsternoAnterioreDestro = [[0,1.2,0.4],[-0.15,1.2,0.4],[-0.4,1.2,0],[-0.15,1.2,-0.4],[0,1.2,-0.4]]
+
+// IRIDE
+//var scleraEsternaMiddle11 = [[0,1.15,0.5],[-0.25,1.15,0.4],[-0.4,1.15,0],[-0.25,1.15,-0.4],[0,1.15,-0.5]]
+//var contornoIrideRaggioEsternoAnterioreDestro = [[0,1.2,0.5],[-0.15,1.2,0.4],[-0.4,1.2,0],[-0.15,1.2,-0.4],[0,1.2,-0.5]]
+var contornoIrideRaggioEsternoAnterioreDestro = [[0,1.2,0.5],[-0.25,1.2,0.4],[-0.4,1.2,0],[-0.25,1.2,-0.4],[0,1.2,-0.5]]
 var knots31 = knots(contornoIrideRaggioEsternoAnterioreDestro);
 var CcontornoIrideRaggioEsternoAnterioreDestro = NUBS(S0)(2)(knots31)(contornoIrideRaggioEsternoAnterioreDestro);
 //var mapCcontornoIrideRaggioEsternoAnterioreDestro = COLOR([0,0,1])(MAP(CcontornoIrideRaggioEsternoAnterioreDestro)(domain1))
 
-var contornoIrideRaggioEsternoPosterioreDestro = [[0,1.3,0.4],[-0.15,1.3,0.4],[-0.4,1.3,0],[-0.15,1.3,-0.4],[0,1.3,-0.4]]
+var contornoIrideRaggioEsternoPosterioreDestro = [[0,1.3,0.5],[-0.25,1.3,0.4],[-0.4,1.3,0],[-0.25,1.3,-0.4],[0,1.3,-0.5]]
 var knots32 = knots(contornoIrideRaggioEsternoPosterioreDestro);
 var CcontornoIrideRaggioEsternoPosterioreDestro = NUBS(S0)(2)(knots32)(contornoIrideRaggioEsternoPosterioreDestro);
 //var mapCcontornoIrideRaggioEsternoPosterioreDestro = COLOR([0,0,1])(MAP(CcontornoIrideRaggioEsternoPosterioreDestro)(domain1))
@@ -280,11 +282,11 @@ DRAW(irideDestroMap)
 
 //Lato sinistro
 
-var contornoIrideRaggioEsternoAnterioreSinistro = [[0,1.2,0.4],[0.15,1.2,0.4],[0.4,1.2,0],[0.15,1.2,-0.4],[0,1.2,-0.4]]
+var contornoIrideRaggioEsternoAnterioreSinistro = [[0,1.2,0.5],[0.25,1.2,0.4],[0.4,1.2,0],[0.25,1.2,-0.4],[0,1.2,-0.5]]
 var knots35 = knots(contornoIrideRaggioEsternoAnterioreSinistro);
 var CcontornoIrideRaggioEsternoAnterioreSinistro = NUBS(S0)(2)(knots35)(contornoIrideRaggioEsternoAnterioreSinistro);
 
-var contornoIrideRaggioEsternoPosterioreSinistro = [[0,1.3,0.4],[0.15,1.3,0.4],[0.4,1.3,0],[0.15,1.3,-0.4],[0,1.3,-0.4]]
+var contornoIrideRaggioEsternoPosterioreSinistro = [[0,1.3,0.5],[0.25,1.3,0.4],[0.4,1.3,0],[0.25,1.3,-0.4],[0,1.3,-0.5]]
 var knots36 = knots(contornoIrideRaggioEsternoPosterioreSinistro);
 var CcontornoIrideRaggioEsternoPosterioreSinistro = NUBS(S0)(2)(knots36)(contornoIrideRaggioEsternoPosterioreSinistro);
 
@@ -308,7 +310,7 @@ DRAW(irideSinistroMap)
 
 //Cornea
 //Prima il lato destro.
-var corneaEsternaDestraBegin = [[0,1.16,0.45],[-0.15,1.15,0.45],[-0.45,1.17,0],[-0.15,1.15,-0.45],[0,1.16,-0.45]]
+var corneaEsternaDestraBegin = [[0,1.16,0.5],[-0.15,1.15,0.5],[-0.45,1.17,0],[-0.15,1.15,-0.5],[0,1.16,-0.5]]
 var knots39 = knots(corneaEsternaDestraBegin);
 var CcorneaEsternaDestraBegin = NUBS(S0)(2)(knots39)(corneaEsternaDestraBegin);
 //var mapCcorneaEsternaDestraBegin = MAP(CcorneaEsternaDestraBegin)(domain1)
@@ -357,3 +359,58 @@ var corneaSinistra = R([0,2])([PI])(corneaDestraMap)
 DRAW(corneaSinistra)
 
 //Cristallino
+//Parte dalla base dell'iride e si estende di 0.2 lunghezza, 0,8 altezza max 0.2/0.3 larghezza
+var  cristallinoBegin = [[0,1.35,0.25],[-0.1,1.35,0.25],[-0.25,1.35,0],[-0.1,1.35,-0.25],[0,1.35,-0.25],[0.1,1.35,-0.25],[0.25,1.35,0],
+						[0.1,1.35,0.25],[0,1.35,0.25]]
+var knots45 = knots(cristallinoBegin);
+var CcristallinoBegin = NUBS(S0)(2)(knots45)(cristallinoBegin);
+//var mapCcristallinoBegin = MAP(CcristallinoBegin)(domain1)
+//DRAW(mapCcristallinoBegin)
+
+var  cristallinoMiddle = [[0,1.5,0.4],[-0.15,1.5,0.4],[-0.3,1.5,0],[-0.15,1.5,-0.4],[0,1.5,-0.4],[0.15,1.5,-0.4],[0.3,1.5,0],
+						[0.15,1.5,0.4],[0,1.5,0.4]]
+var knots46 = knots(cristallinoMiddle);
+var CcristallinoMiddle = NUBS(S0)(2)(knots46)(cristallinoMiddle);
+//var mapCcristallinoMiddle = MAP(CcristallinoMiddle)(domain1)
+//DRAW(mapCcristallinoMiddle)
+
+var  cristallinoEnd = [[0,1.6,0.25],[-0.1,1.6,0.25],[-0.25,1.6,0],[-0.1,1.6,-0.25],[0,1.6,-0.25],[0.1,1.6,-0.25],[0.25,1.6,0],
+						[0.1,1.6,0.25],[0,1.6,0.25]]
+var knots47 = knots(cristallinoEnd);
+var CcristallinoEnd = NUBS(S0)(2)(knots47)(cristallinoEnd);
+//var mapCcristallinoEnd = MAP(CcristallinoEnd)(domain1)
+//DRAW(mapCcristallinoEnd)
+
+var curveCristallino = [[0,1.3,0],CcristallinoBegin,CcristallinoMiddle,CcristallinoEnd,[0,1.65,0]]
+var CcurveCristallino = BEZIER(S1)(curveCristallino)
+var curveCristallinoMap = COLOR([1, 1, 0.941176, 0.9])(MAP(CcurveCristallino)(domain2))
+DRAW(curveCristallinoMap)
+
+var curveCristallino = [[0,1.3,0],CcristallinoBegin,CcristallinoMiddle,CcristallinoEnd,[0,1.65,0]]
+var CcurveCristallino = BEZIER(S1)(curveCristallino)
+var curveCristallinoMap = COLOR([1, 1, 0.941176, 0.9])(MAP(CcurveCristallino)(domain2))
+DRAW(curveCristallinoMap)
+
+
+//Giunture
+
+var curveCorpoMuscolare = [CscleraEsternaMiddle11,CcontornoIrideRaggioEsternoAnterioreDestro]
+var CcurveCorpoMuscolare = BEZIER(S1)(curveCorpoMuscolare)
+var curveCorpoMuscolareMap = COLOR([1, 1, 0.941176])(MAP(CcurveCorpoMuscolare)(domain2))
+DRAW(curveCorpoMuscolareMap)
+
+var  cristallinoMiddleHalf = [[-0.2,1.5,0],[-0.15,1.5,0.4],[0,1.5,0.4],[0.15,1.5,0.4],[0.2,1.5,0]]
+var knots48 = knots(cristallinoMiddleHalf);
+var CcristallinoMiddleHalf = NUBS(S0)(2)(knots48)(cristallinoMiddleHalf);
+var  cristallinoMiddleHalfDown = [[-0.2,1.5,0],[-0.15,1.5,-0.4],[0,1.5,-0.4],[0.15,1.5,-0.4],[0.2,1.5,0]]
+var CcristallinoMiddleHalfDown = NUBS(S0)(2)(knots48)(cristallinoMiddleHalfDown);
+
+var curveSosprensoreCristallino1 = [CcristallinoMiddleHalf,[0,1.5,0.5],[0,1.6,1]]
+var CcurveSosprensoreCristallino1 = BEZIER(S1)(curveSosprensoreCristallino1)
+var curveSosprensoreCristallino1Map = COLOR([1, 1, 0.941176,0.9])(MAP(CcurveSosprensoreCristallino1)(domain2))
+DRAW(curveSosprensoreCristallino1Map)
+
+var curveSosprensoreCristallino2 = [CcristallinoMiddleHalf,[0,1.5,-0.5],[0,1.6,-1]]
+var CcurveSosprensoreCristallino2 = BEZIER(S1)(curveSosprensoreCristallino2)
+var curveSosprensoreCristallino2Map = COLOR([1, 1, 0.941176,0.9])(MAP(CcurveSosprensoreCristallino2)(domain2))
+DRAW(curveSosprensoreCristallino2Map)
