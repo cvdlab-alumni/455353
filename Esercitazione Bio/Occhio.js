@@ -1,8 +1,8 @@
 //Occhio
 
-var domain1 = INTERVALS(1)(100);
+var domain1 = INTERVALS(1)(150);
 var domain2 = DOMAIN([[0,1],[0,1]])([50,50]);
-var domain3 = DOMAIN([[0,1],[0,1],[0,1]])([20,20,1]);
+var domain3 = DOMAIN([[0,1],[0,1],[0,1]])([25,25,1]);
 
 function knots (point) {
   var k = 2;	
@@ -31,7 +31,7 @@ function knots (point) {
 
 //Nervo Ottico
 
-var nervoOtticoInternoBegin = [[0,4.5,0.2],[-0.25,4.5,0],[0,4.5,-0.2]]
+var nervoOtticoInternoBegin = [[0,4.5,0],[-0.25,4.5,-0.2],[0,4.5,-0.4]]
 var knots1 = knots(nervoOtticoInternoBegin);
 var CnervoOtticoInternoBegin = NUBS(S0)(2)(knots1)(nervoOtticoInternoBegin);
 //var mapCnervoOtticoInternoBegin = MAP(CnervoOtticoInternoBegin)(domain1)
@@ -41,7 +41,7 @@ var knots2 = knots(nervoOtticoInternoEnd);
 var CnervoOtticoInternoEnd = NUBS(S0)(2)(knots2)(nervoOtticoInternoEnd);
 //var mapCnervoOtticoInternoEnd = MAP(CnervoOtticoInternoEnd)(domain1)
 
-var nervoOtticoEsternoBegin = [[0,4.5,0.35],[-0.5,4.5,0],[0,4.5,-0.35]]
+var nervoOtticoEsternoBegin = [[0,4.5,0.15],[-0.5,4.5,-0.2],[0,4.5,-0.55]]
 var knots3 = knots(nervoOtticoEsternoBegin);
 var CnervoOtticoEsternoBegin = NUBS(S0)(2)(knots3)(nervoOtticoEsternoBegin);
 //var mapCnervoOtticoEsternoBegin = MAP(CnervoOtticoEsternoBegin)(domain1)
@@ -78,7 +78,7 @@ var nervoOttico3dMap = COLOR([1, 0.941176, 0.960784])(MAP(nervoOttico3d)(domain3
 DRAW(nervoOttico3dMap)
 
 //Vero e propria concavità nervo ottico
-var TrueNervoOtticoInternoBegin = [[0,4.5,0.1],[-0.15,4.5,0],[0,4.5,-0.1]]
+var TrueNervoOtticoInternoBegin = [[0,4.5,-0.1],[-0.15,4.5,-0.2],[0,4.5,-0.3]]
 var knots1p = knots(TrueNervoOtticoInternoBegin);
 var CTrueNervoOtticoInternoBegin = NUBS(S0)(2)(knots1p)(TrueNervoOtticoInternoBegin);
 
@@ -242,10 +242,7 @@ DRAW(scleraMap)
 //DRAW(scleraSinistra)
 
 
-
 // IRIDE
-//var scleraEsternaMiddle11 = [[0,1.15,0.5],[-0.25,1.15,0.4],[-0.4,1.15,0],[-0.25,1.15,-0.4],[0,1.15,-0.5]]
-//var contornoIrideRaggioEsternoAnterioreDestro = [[0,1.2,0.5],[-0.15,1.2,0.4],[-0.4,1.2,0],[-0.15,1.2,-0.4],[0,1.2,-0.5]]
 var contornoIrideRaggioEsternoAnterioreDestro = [[0,1.2,0.5],[-0.25,1.2,0.4],[-0.4,1.2,0],[-0.25,1.2,-0.4],[0,1.2,-0.5]]
 var knots31 = knots(contornoIrideRaggioEsternoAnterioreDestro);
 var CcontornoIrideRaggioEsternoAnterioreDestro = NUBS(S0)(2)(knots31)(contornoIrideRaggioEsternoAnterioreDestro);
@@ -364,22 +361,16 @@ var  cristallinoBegin = [[0,1.35,0.25],[-0.1,1.35,0.25],[-0.25,1.35,0],[-0.1,1.3
 						[0.1,1.35,0.25],[0,1.35,0.25]]
 var knots45 = knots(cristallinoBegin);
 var CcristallinoBegin = NUBS(S0)(2)(knots45)(cristallinoBegin);
-//var mapCcristallinoBegin = MAP(CcristallinoBegin)(domain1)
-//DRAW(mapCcristallinoBegin)
 
 var  cristallinoMiddle = [[0,1.5,0.4],[-0.15,1.5,0.4],[-0.3,1.5,0],[-0.15,1.5,-0.4],[0,1.5,-0.4],[0.15,1.5,-0.4],[0.3,1.5,0],
 						[0.15,1.5,0.4],[0,1.5,0.4]]
 var knots46 = knots(cristallinoMiddle);
 var CcristallinoMiddle = NUBS(S0)(2)(knots46)(cristallinoMiddle);
-//var mapCcristallinoMiddle = MAP(CcristallinoMiddle)(domain1)
-//DRAW(mapCcristallinoMiddle)
 
 var  cristallinoEnd = [[0,1.6,0.25],[-0.1,1.6,0.25],[-0.25,1.6,0],[-0.1,1.6,-0.25],[0,1.6,-0.25],[0.1,1.6,-0.25],[0.25,1.6,0],
 						[0.1,1.6,0.25],[0,1.6,0.25]]
 var knots47 = knots(cristallinoEnd);
 var CcristallinoEnd = NUBS(S0)(2)(knots47)(cristallinoEnd);
-//var mapCcristallinoEnd = MAP(CcristallinoEnd)(domain1)
-//DRAW(mapCcristallinoEnd)
 
 var curveCristallino = [[0,1.3,0],CcristallinoBegin,CcristallinoMiddle,CcristallinoEnd,[0,1.65,0]]
 var CcurveCristallino = BEZIER(S1)(curveCristallino)
@@ -388,7 +379,7 @@ DRAW(curveCristallinoMap)
 
 var curveCristallino = [[0,1.3,0],CcristallinoBegin,CcristallinoMiddle,CcristallinoEnd,[0,1.65,0]]
 var CcurveCristallino = BEZIER(S1)(curveCristallino)
-var curveCristallinoMap = COLOR([1, 1, 0.941176, 0.9])(MAP(CcurveCristallino)(domain2))
+var curveCristallinoMap = COLOR([1, 1, 0.941176, 0.7])(MAP(CcurveCristallino)(domain2))
 DRAW(curveCristallinoMap)
 
 
@@ -420,56 +411,214 @@ DRAW(curveSosprensoreCristallino2Map)
 var coroideBegin = [[0,3.6,0.5],[-0.6,3.6,0],[0,3.6,-0.5]]
 var knots49 = knots(coroideBegin);
 var CcoroideBegin = NUBS(S0)(2)(knots49)(coroideBegin);
-//var mapCcoroideBegin = MAP(CcoroideBegin)(domain1)
-//DRAW(mapCcoroideBegin)
 
 var coroideMiddle1 = [[0,3.4,1.1],[-1,3.4,0],[0,3.4,-1.1]]
 var CcoroideMiddle1 = NUBS(S0)(2)(knots49)(coroideMiddle1);
-//var mapCcoroideMiddle1 = MAP(CcoroideMiddle1)(domain1)
-//DRAW(mapCcoroideMiddle1)
 
 var coroideMiddle2 = [[0,3.2,1.2],[-1.2,3.2,0],[0,3.2,-1.2]]
 var CcoroideMiddle2 = NUBS(S0)(2)(knots49)(coroideMiddle2);
-//var mapCcoroideMiddle2 = MAP(CcoroideMiddle2)(domain1)
-//DRAW(mapCcoroideMiddle2)
 
 var coroideMiddle3 = [[0,3,1.3],[-1.3,3,0],[0,3,-1.3]]
 var CcoroideMiddle3 = NUBS(S0)(2)(knots49)(coroideMiddle3);
-//var mapCcoroideMiddle3 = MAP(CcoroideMiddle3)(domain1)
-//DRAW(mapCcoroideMiddle3)
 
 var coroideMiddle4 = [[0,2.8,1.4],[-1.3,2.8,0],[0,2.8,-1.4]]
 var CcoroideMiddle4 = NUBS(S0)(2)(knots49)(coroideMiddle4);
-//var mapCcoroideMiddle4 = MAP(CcoroideMiddle4)(domain1)
-//DRAW(mapCcoroideMiddle4)
 
 var coroideMiddle5 = [[0,2.2,1.4],[-1.3,2.2,0],[0,2.2,-1.4]]
 var CcoroideMiddle5 = NUBS(S0)(2)(knots49)(coroideMiddle5);
-//var mapCcoroideMiddle5 = MAP(CcoroideMiddle5)(domain1)
-//DRAW(mapCcoroideMiddle5)
 
 var coroideMiddle6 = [[0,2,1.3],[-1.3,2,0],[0,2,-1.3]]
 var CcoroideMiddle6 = NUBS(S0)(2)(knots49)(coroideMiddle6);
-//var mapCcoroideMiddle6 = MAP(CcoroideMiddle6)(domain1)
-//DRAW(mapCcoroideMiddle6)
 
 var coroideMiddle7 = [[0,1.8,1.1],[-1.2,1.8,0],[0,1.8,-1.1]]
 var CcoroideMiddle7 = NUBS(S0)(2)(knots49)(coroideMiddle7);
-//var mapCcoroideMiddle7 = MAP(CcoroideMiddle7)(domain1)
-//DRAW(mapCcoroideMiddle7)
 
 var coroideMiddle8 = [[0,1.5,1],[-1,1.5,0],[0,1.5,-1]]
 var CcoroideMiddle8 = NUBS(S0)(2)(knots24)(coroideMiddle8);
-//var mapCcoroideMiddle8 = MAP(CcoroideMiddle8)(domain1)
-//DRAW(mapCcoroideMiddle8)
 
 var curvecoroide = [CnervoOtticoEsternoRistringimento,CcoroideBegin,CcoroideMiddle1,CcoroideMiddle2,
 						  CcoroideMiddle3,CcoroideMiddle4,CcoroideMiddle5,CcoroideMiddle6,
 						  CcoroideMiddle7,CcoroideMiddle8]
 var coroide = BEZIER(S1)(curvecoroide);
-//var coroideMap = COLOR([ 0.576471, 0.439216, 0.858824])(MAP(coroide)(domain2))
-//DRAW(coroideMap)
 
 var coroideStrato = BEZIER(S2)([coroide,scleraInterna]);
 var coroideStratoMap = COLOR([ 0.576471, 0.439216, 0.858824])(MAP(coroideStrato)(domain3));
 DRAW(coroideStratoMap)
+
+//Parte Ottica della retina
+var otticaRetinaBegin = [[0,3.6,0.4],[-0.5,3.6,0],[0,3.6,-0.4]]
+var knots49 = knots(otticaRetinaBegin);
+var CotticaRetinaBegin = NUBS(S0)(2)(knots49)(otticaRetinaBegin);
+
+var otticaRetinaMiddle1 = [[0,3.4,1],[-0.9,3.4,0],[0,3.4,-1]]
+var CotticaRetinaMiddle1 = NUBS(S0)(2)(knots49)(otticaRetinaMiddle1);
+
+var otticaRetinaMiddle2 = [[0,3.2,1.1],[-1.1,3.2,0],[0,3.2,-1.1]]
+var CotticaRetinaMiddle2 = NUBS(S0)(2)(knots49)(otticaRetinaMiddle2);
+
+var otticaRetinaMiddle3 = [[0,3,1.2],[-1.2,3,0],[0,3,-1.2]]
+var CotticaRetinaMiddle3 = NUBS(S0)(2)(knots49)(otticaRetinaMiddle3);
+
+var otticaRetinaMiddle4 = [[0,2.8,1.3],[-1.2,2.8,0],[0,2.8,-1.3]]
+var CotticaRetinaMiddle4 = NUBS(S0)(2)(knots49)(otticaRetinaMiddle4);
+
+var otticaRetinaMiddle5 = [[0,2.2,1.3],[-1.2,2.2,0],[0,2.2,-1.3]]
+var CotticaRetinaMiddle5 = NUBS(S0)(2)(knots49)(otticaRetinaMiddle5);
+
+var otticaRetinaMiddle6 = [[0,2,1.2],[-1.2,2,0],[0,2,-1.2]]
+var CotticaRetinaMiddle6 = NUBS(S0)(2)(knots49)(otticaRetinaMiddle6);
+
+var otticaRetinaMiddle7 = [[0,1.8,1],[-1.1,1.8,0],[0,1.8,-1]]
+var CotticaRetinaMiddle7 = NUBS(S0)(2)(knots49)(otticaRetinaMiddle7);
+
+var otticaRetinaMiddle8 = [[0,1.5,0.9],[-0.9,1.5,0],[0,1.5,-0.9]]
+var CotticaRetinaMiddle8 = NUBS(S0)(2)(knots24)(otticaRetinaMiddle8);
+
+var curveotticaRetina = [CnervoOtticoInternoRistringimento,CotticaRetinaBegin,CotticaRetinaMiddle1,CotticaRetinaMiddle2,
+						  CotticaRetinaMiddle3,CotticaRetinaMiddle4,CotticaRetinaMiddle5,CotticaRetinaMiddle6,
+						  CotticaRetinaMiddle7,CotticaRetinaMiddle8]
+var otticaRetina = BEZIER(S1)(curveotticaRetina);
+
+var otticaRetinaStrato = BEZIER(S2)([otticaRetina,coroide]);
+var otticaRetinaStratoMap = COLOR([1, 0.84, 0])(MAP(otticaRetinaStrato)(domain3));
+DRAW(otticaRetinaStratoMap)
+
+//Retina
+var RetinaBegin = [[0,3.6,0.3],[-0.4,3.6,0],[0,3.6,-0.3]]
+var knots49 = knots(RetinaBegin);
+var CRetinaBegin = NUBS(S0)(2)(knots49)(RetinaBegin);
+
+var RetinaMiddle1 = [[0,3.4,0.9],[-0.8,3.4,0],[0,3.4,-0.9]]
+var CRetinaMiddle1 = NUBS(S0)(2)(knots49)(RetinaMiddle1);
+
+var RetinaMiddle2 = [[0,3.2,1],[-1,3.2,0],[0,3.2,-1]]
+var CRetinaMiddle2 = NUBS(S0)(2)(knots49)(RetinaMiddle2);
+
+var RetinaMiddle3 = [[0,3,1.1],[-1.1,3,0],[0,3,-1.1]]
+var CRetinaMiddle3 = NUBS(S0)(2)(knots49)(RetinaMiddle3);
+
+var RetinaMiddle4 = [[0,2.8,1.2],[-1.1,2.8,0],[0,2.8,-1.2]]
+var CRetinaMiddle4 = NUBS(S0)(2)(knots49)(RetinaMiddle4);
+
+var RetinaMiddle5 = [[0,2.2,1.2],[-1.1,2.2,0],[0,2.2,-1.2]]
+var CRetinaMiddle5 = NUBS(S0)(2)(knots49)(RetinaMiddle5);
+
+var RetinaMiddle6 = [[0,2,1.1],[-1.1,2,0],[0,2,-1.1]]
+var CRetinaMiddle6 = NUBS(S0)(2)(knots49)(RetinaMiddle6);
+
+var RetinaMiddle7 = [[0,1.8,0.9],[-1,1.8,0],[0,1.8,-0.9]]
+var CRetinaMiddle7 = NUBS(S0)(2)(knots49)(RetinaMiddle7);
+
+var RetinaMiddle8 = [[0,1.5,0.8],[-0.8,1.5,0],[0,1.5,-0.8]]
+var CRetinaMiddle8 = NUBS(S0)(2)(knots49)(RetinaMiddle8);
+
+var curveRetina = [CnervoOtticoInternoRistringimento,CRetinaBegin,CRetinaMiddle1,CRetinaMiddle2,
+						  CRetinaMiddle3,CRetinaMiddle4,CRetinaMiddle5,CRetinaMiddle6,
+						  CRetinaMiddle7,CRetinaMiddle8]
+var Retina = BEZIER(S1)(curveRetina);
+
+var RetinaStrato = BEZIER(S2)([Retina,coroide]);
+var RetinaStratoMap = COLOR([0.803922, 0.521569, 0.247059])(MAP(RetinaStrato)(domain3));
+DRAW(RetinaStratoMap)
+
+//Giunzione2
+
+var giunzione2 = [CRetinaMiddle8,CcontornoIrideRaggioEsternoPosterioreDestro]
+var Cgiunzione2 = BEZIER(S1)(giunzione2);
+var giunzione2Map = COLOR([0.803922, 0.521569, 0.247059])(MAP(Cgiunzione2)(domain2));
+DRAW(giunzione2Map)
+
+//Canale Iodaleo
+
+var  canaleBeginSuperiore = [[0,1.7,0.1],[0,1.7,1.7],[-0.3,1.7,0],[0,1.7,0.1]]
+var knots51 = knots(canaleBeginSuperiore);
+var CcanaleBeginSuperiore = NUBS(S0)(2)(knots51)(canaleBeginSuperiore);
+//var CcanaleBeginSuperioreMap = MAP(CcanaleBeginSuperiore)(domain1)
+//DRAW(CcanaleBeginSuperioreMap)
+
+var  canaleMiddleSuperiore = [[0,2.6,0.2],[0,2.6,1.7],[-0.6,2.6,0],[0,2.6,0.2]]
+var CcanaleMiddleSuperiore = NUBS(S0)(2)(knots51)(canaleMiddleSuperiore);
+//var CcanaleMiddleSuperioreMap = MAP(CcanaleMiddleSuperiore)(domain1)
+//DRAW(CcanaleMiddleSuperioreMap)
+
+var  canaleEndSuperiore = [[0,3.2,0.1],[0,3.2,1.7],[-0.5,3.2,0],[0,3.2,0.1]]
+var CcanaleEndSuperiore = NUBS(S0)(2)(knots51)(canaleEndSuperiore);
+//var CcanaleEndSuperioreMap = MAP(CcanaleEndSuperiore)(domain1)
+//DRAW(CcanaleEndSuperioreMap)
+
+var corpoVitreoSuperiore = [[-0.05,1.6,0.05],CcanaleBeginSuperiore,CcanaleMiddleSuperiore,CcanaleEndSuperiore,[-0.05,3.7,0.05]]
+var CcorpoVitreoSuperiore = BEZIER(S1)(corpoVitreoSuperiore);
+var corpoVitreoSuperioreMap = COLOR([ 0.686275, 0.933333, 0.933333,0.7])(MAP(CcorpoVitreoSuperiore)(domain2));
+DRAW(corpoVitreoSuperioreMap)
+
+
+var  canaleBeginInferiore = [[0,1.7,-0.1],[0,1.7,-1.7],[-0.3,1.7,0],[0,1.7,-0.1]]
+var CcanaleBeginInferiore = NUBS(S0)(2)(knots51)(canaleBeginInferiore);
+//var CcanaleBeginInferioreMap = MAP(CcanaleBeginInferiore)(domain1)
+//DRAW(CcanaleBeginInferioreMap)
+
+var  canaleMiddleInferiore = [[0,2.6,0.1],[0,2.6,-1.7],[-0.6,2.6,0],[0,2.6,0.1]]
+var CcanaleMiddleInferiore = NUBS(S0)(2)(knots51)(canaleMiddleInferiore);
+//var CcanaleMiddleInferioreMap = MAP(CcanaleMiddleInferiore)(domain1)
+//DRAW(CcanaleMiddleInferioreMap)
+
+var  canaleEndInferiore = [[0,3.2,-0.1],[0,3.2,-1.7],[-0.5,3.2,0],[0,3.2,-0.1]]
+var CcanaleEndInferiore = NUBS(S0)(2)(knots51)(canaleEndInferiore);
+//var CcanaleEndInferioreMap = MAP(CcanaleEndInferiore)(domain1)
+//DRAW(CcanaleEndInferioreMap)
+
+var corpoVitreoInferiore = [[-0.05,1.6,-0.05],CcanaleBeginInferiore,CcanaleMiddleInferiore,CcanaleEndInferiore,[-0.05,3.7,-0.05]]
+var CcorpoVitreoInferiore = BEZIER(S1)(corpoVitreoInferiore);
+var corpoVitreoInferioreMap = COLOR([ 0.686275, 0.933333, 0.933333,0.7])(MAP(CcorpoVitreoInferiore)(domain2));
+DRAW(corpoVitreoInferioreMap)
+
+//Arteria della retina
+//Riprendiamo le curve iniziali
+
+var arteriaInternoBegin = [[0,4.5,-0.1],[0.15,4.5,-0.2],[0,4.5,-0.3]]
+var knots1p = knots(arteriaInternoBegin);
+var CarteriaInternoBegin = NUBS(S0)(2)(knots1p)(arteriaInternoBegin);
+
+var arteriaInternoEnd = [[0,4,0.1],[0.15,4,0],[0,4,-0.1]]
+var CarteriaInternoEnd = NUBS(S0)(2)(knots1p)(arteriaInternoEnd);
+
+var arteriaInternoRistringimento = [[0,3.8,0.05],[0.1,3.8,0],[0,3.8,-0.05]]
+var CarteriaInternoRistringimento = NUBS(S0)(2)(knots1p)(arteriaInternoRistringimento);
+
+var curveSurfacearteriaInterno = [CarteriaInternoBegin,CarteriaInternoEnd,CarteriaInternoRistringimento]
+var arteriaInterno = BEZIER(S1)(curveSurfacearteriaInterno);
+
+var arteria3d = BEZIER(S2)([arteriaInterno,TrueNervoOtticoInterno]);
+var arteria3dMap = COLOR([1, 0, 0])(MAP(arteria3d)(domain3));
+DRAW(arteria3dMap)
+
+//corpoVitreoInferiore
+var vena1 = [[0,3.8,0],[-0.15,3.7,0.05],[-0.15,3.6,0.1],[-0.1,3.5,0.11]]
+var knots1p = knots(vena1);
+var Cvena1 = NUBS(S0)(2)(knots1p)(vena1);
+var Cvena1Map = COLOR([1,0,0])(MAP(Cvena1)(domain1))
+DRAW(Cvena1Map)
+
+var vena2 = [[-0.15,3.7,0.05],[-0.1,3.6,0.15],[-0.05,3.4,0.2]]
+var knots1p = knots(vena2);
+var Cvena2 = NUBS(S0)(2)(knots1p)(vena2);
+var Cvena2Map = COLOR([0,0,1])(MAP(Cvena2)(domain1))
+DRAW(Cvena2Map)
+
+var vena3 = [[-0.1,3.6,0.15],[-0.1,3.4,0.2],[-0.1,3.3,0.5]]
+var knots1p = knots(vena3);
+var Cvena3 = NUBS(S0)(2)(knots1p)(vena3);
+var Cvena3Map = COLOR([1,0,0])(MAP(Cvena3)(domain1))
+DRAW(Cvena3Map)
+
+var vena4 = [[0,3.8,0],[-0.15,3.7,-0.05],[-0.15,3.6,-0.1],[-0.1,3.5,-0.11]]
+var knots1p = knots(vena4);
+var Cvena4 = NUBS(S0)(2)(knots1p)(vena4);
+var Cvena4Map = COLOR([0,0,1])(MAP(Cvena4)(domain1))
+DRAW(Cvena4Map)
+
+var vena5 = [[-0.15,3.7,-0.05],[-0.1,3.6,-0.15],[-0.05,3.4,-0.2]]
+var knots1p = knots(vena5);
+var Cvena5 = NUBS(S0)(2)(knots1p)(vena5);
+var Cvena5Map = COLOR([1,0,0])(MAP(Cvena5)(domain1))
+DRAW(Cvena5Map)
