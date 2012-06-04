@@ -108,7 +108,7 @@ var knots8 = knots(scleraInternaBegin);
 var CscleraInternaBegin = NUBS(S0)(2)(knots8)(scleraInternaBegin);
 //var mapCscleraInternaBegin = MAP(CscleraInternaBegin)(domain1)
 
-var scleraEsternaMiddle1 = [[0,3.4,1.4],[-0.9,3.4,1.4],[-1.9,3.4,0],[-0.9,3.4,-1.4],[0,3.4,-1.4]]
+var scleraEsternaMiddle1 = [[0,3.4,1.4],[-0.9,3.4,1.4],[-2,3.4,0],[-0.9,3.4,-1.4],[0,3.4,-1.4]]
 var knots9 = knots(scleraEsternaMiddle1);
 var CscleraEsternaMiddle1 = NUBS(S0)(2)(knots9)(scleraEsternaMiddle1);
 //var mapCscleraEsternaMiddle1 = MAP(CscleraEsternaMiddle1)(domain1)
@@ -118,7 +118,7 @@ var knots10 = knots(scleraInternaMiddle1);
 var CscleraInternaMiddle1 = NUBS(S0)(2)(knots10)(scleraInternaMiddle1);
 //var mapCscleraInternaMiddle1 = MAP(CscleraInternaMiddle1)(domain1)
 
-var scleraEsternaMiddle2 = [[0,3.2,1.5],[-0.9,3.2,1.5],[-1.9,3.2,0],[-0.9,3.2,-1.5],[0,3.2,-1.5]]
+var scleraEsternaMiddle2 = [[0,3.2,1.5],[-0.9,3.2,1.5],[-2,3.2,0],[-0.9,3.2,-1.5],[0,3.2,-1.5]]
 var knots11 = knots(scleraEsternaMiddle2);
 var CscleraEsternaMiddle2 = NUBS(S0)(2)(knots11)(scleraEsternaMiddle2);
 //var mapCscleraEsternaMiddle2 = MAP(CscleraEsternaMiddle2)(domain1)
