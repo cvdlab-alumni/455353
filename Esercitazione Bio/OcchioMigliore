@@ -630,15 +630,15 @@ var scleraSinistra4 = COLOR([1, 0.941176, 0.960784,0.5])(scleraSinistra)
 
 function timeMsg()
 {
-setTimeout("DRAW(scleraSinistra1)",9000);
-setTimeout("HIDE(scleraSinistra)",9010);
-setTimeout("DRAW(scleraSinistra2)",10000);
-setTimeout("HIDE(scleraSinistra1)",10010);
-setTimeout("DRAW(scleraSinistra3)",11000);
-setTimeout("HIDE(scleraSinistra2)",11010);
-setTimeout("DRAW(scleraSinistra4)",12000);
-setTimeout("HIDE(scleraSinistra3)",12010);
-setTimeout("HIDE(scleraSinistra4)",13000);
+setTimeout("DRAW(scleraSinistra1)",8000);
+setTimeout("HIDE(scleraSinistra)",8010);
+setTimeout("DRAW(scleraSinistra2)",9000);
+setTimeout("HIDE(scleraSinistra1)",9010);
+setTimeout("DRAW(scleraSinistra3)",10000);
+setTimeout("HIDE(scleraSinistra2)",10010);
+setTimeout("DRAW(scleraSinistra4)",11000);
+setTimeout("HIDE(scleraSinistra3)",11010);
+setTimeout("HIDE(scleraSinistra4)",12000);
 }
 timeMsg();
 //var scleraSinistra = R([0,2])([PI])(scleraEsternaMap)
