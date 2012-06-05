@@ -5,6 +5,7 @@ var domain2 = DOMAIN([[0,1],[0,1]])([50,50]);
 var domain3 = DOMAIN([[0,1],[0,1],[0,1]])([25,25,1]);
 
 function knots (point) {
+  
   var k = 2;	
   var m =point.length;
   var n = (m + k + 1);
@@ -19,13 +20,11 @@ function knots (point) {
 
   for (var i = 3; i < last; i++,first++) {
     	knots[i] = first;
-
   		};
 
   for (var i = last; i < n; i++) {
     	knots[i] = first;
   		};
-
   return knots;
 };
 
@@ -632,30 +631,30 @@ var vasi = STRUCT([Cvena1Map,Cvena2Map,Cvena3Map,Cvena4Map,Cvena5Map])
  DRAW(vasi)
 
 //Animazione
-var nervoOtticoEsternoMapRibaltato = COLOR([1, 0.941176, 0.960784])(SCALE([0])([-1])(nervoOtticoEsternoMap))
 
+var nervoOtticoEsternoMapRibaltato = COLOR([1, 0.941176, 0.960784])(SCALE([0])([-1])(nervoOtticoEsternoMap))
 var scleraSinistraAppoggio = COLOR([1, 0.941176, 0.960784])(SCALE([0])([-1])(scleraEsternaMap))
 
 var scleraSinistra =STRUCT([scleraSinistraAppoggio,nervoOtticoEsternoMapRibaltato])
-
-DRAW(scleraSinistra)
+ DRAW(scleraSinistra)
 
 var scleraSinistra1 = COLOR([1, 0.941176, 0.960784,0.8])(scleraSinistra)
-var scleraSinistra2 = COLOR([1, 0.941176, 0.960784,0.7])(scleraSinistra)
-var scleraSinistra3 = COLOR([1, 0.941176, 0.960784,0.6])(scleraSinistra)
-var scleraSinistra4 = COLOR([1, 0.941176, 0.960784,0.5])(scleraSinistra)
+ var scleraSinistra2 = COLOR([1, 0.941176, 0.960784,0.7])(scleraSinistra)
+  var scleraSinistra3 = COLOR([1, 0.941176, 0.960784,0.6])(scleraSinistra)
+   var scleraSinistra4 = COLOR([1, 0.941176, 0.960784,0.5])(scleraSinistra)
+
+DRAW(scleraSinistra1)
+ DRAW(scleraSinistra2)
+  DRAW(scleraSinistra3)
+   DRAW(scleraSinistra4)
 
 //funzione per la finta animazione
 function time()
 {
-setTimeout("DRAW(scleraSinistra1)",7000);
-setTimeout("HIDE(scleraSinistra)",7010);
-setTimeout("DRAW(scleraSinistra2)",8000);
-setTimeout("HIDE(scleraSinistra1)",8010);
-setTimeout("DRAW(scleraSinistra3)",9000);
-setTimeout("HIDE(scleraSinistra2)",9010);
-setTimeout("DRAW(scleraSinistra4)",10000);
-setTimeout("HIDE(scleraSinistra3)",10010);
-setTimeout("HIDE(scleraSinistra4)",11000);
+  setTimeout("HIDE(scleraSinistra)",7010);
+  setTimeout("HIDE(scleraSinistra1)",7310);
+  setTimeout("HIDE(scleraSinistra2)",7610);
+  setTimeout("HIDE(scleraSinistra3)",7910);
+  setTimeout("HIDE(scleraSinistra4)",8210);
 }
 time();
