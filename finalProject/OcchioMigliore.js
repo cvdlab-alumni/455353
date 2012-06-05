@@ -5,7 +5,7 @@ var domain2 = DOMAIN([[0,1],[0,1]])([50,50]);
 var domain3 = DOMAIN([[0,1],[0,1],[0,1]])([25,25,1]);
 
 function knots (point) {
-
+  
   var k = 2;	
   var m =point.length;
   var n = (m + k + 1);
@@ -634,43 +634,19 @@ var vasi = STRUCT([Cvena1Map,Cvena2Map,Cvena3Map,Cvena4Map,Cvena5Map])
 
 var nervoOtticoEsternoMapRibaltato = COLOR([1, 0.941176, 0.960784])(SCALE([0])([-1])(nervoOtticoEsternoMap))
 var scleraSinistraAppoggio = COLOR([1, 0.941176, 0.960784])(SCALE([0])([-1])(scleraEsternaMap))
-var coroideSinistra = COLOR([0.576471, 0.439216, 0.858824])(SCALE([0])([-1])(coroideStratoMap))
-var otticaRetinaSinistra = COLOR([1, 0.84, 0])(SCALE([0])([-1])(otticaRetinaStratoMap))
 
 var scleraSinistra =STRUCT([scleraSinistraAppoggio,nervoOtticoEsternoMapRibaltato])
-
+ DRAW(scleraSinistra)
 
 var scleraSinistra1 = COLOR([1, 0.941176, 0.960784,0.8])(scleraSinistra)
  var scleraSinistra2 = COLOR([1, 0.941176, 0.960784,0.7])(scleraSinistra)
   var scleraSinistra3 = COLOR([1, 0.941176, 0.960784,0.6])(scleraSinistra)
    var scleraSinistra4 = COLOR([1, 0.941176, 0.960784,0.5])(scleraSinistra)
 
-var coroideSinistra1 = COLOR([0.576471, 0.439216, 0.858824,0.8])(coroideSinistra)
- var coroideSinistra2 = COLOR([0.576471, 0.439216, 0.858824,0.7])(coroideSinistra)
-  var coroideSinistra3 = COLOR([0.576471, 0.439216, 0.858824,0.6])(coroideSinistra)
-   var coroideSinistra4 = COLOR([0.576471, 0.439216, 0.858824,0.5])(coroideSinistra)
-
-var otticaRetinaSinistra1 = COLOR([1, 0.84, 0,0.8])(otticaRetinaSinistra)
- var otticaRetinaSinistra2 = COLOR([1, 0.84, 0,0.7])(otticaRetinaSinistra)
-  var otticaRetinaSinistra3 = COLOR([1, 0.84, 0,0.6])(otticaRetinaSinistra)
-   var otticaRetinaSinistra4 = COLOR([1, 0.84, 0,0.5])(otticaRetinaSinistra)
- 
-DRAW(scleraSinistra)
- DRAW(scleraSinistra1)
+DRAW(scleraSinistra1)
  DRAW(scleraSinistra2)
- DRAW(scleraSinistra3)
- DRAW(scleraSinistra4)
-  DRAW(coroideSinistra)
-  DRAW(coroideSinistra1)
-  DRAW(coroideSinistra2)
-  DRAW(coroideSinistra3)
-  DRAW(coroideSinistra4)
-   DRAW(otticaRetinaSinistra)
-   DRAW(otticaRetinaSinistra1)
-   DRAW(otticaRetinaSinistra2)
-   DRAW(otticaRetinaSinistra3)
-   DRAW(otticaRetinaSinistra4)
-
+  DRAW(scleraSinistra3)
+   DRAW(scleraSinistra4)
 
 //funzione per la finta animazione
 function time()
@@ -680,15 +656,5 @@ function time()
   setTimeout("HIDE(scleraSinistra2)",7610);
   setTimeout("HIDE(scleraSinistra3)",7910);
   setTimeout("HIDE(scleraSinistra4)",8210);
-  setTimeout("HIDE(coroideSinistra)",9510);
-  setTimeout("HIDE(coroideSinistra1)",9810);
-  setTimeout("HIDE(coroideSinistra2)",10110);
-  setTimeout("HIDE(coroideSinistra3)",10410);
-  setTimeout("HIDE(coroideSinistra4)",10710);
-  setTimeout("HIDE(otticaRetinaSinistra)",11710);
-  setTimeout("HIDE(otticaRetinaSinistra1)",12010);
-  setTimeout("HIDE(otticaRetinaSinistra2)",12310);
-  setTimeout("HIDE(otticaRetinaSinistra3)",12610);
-  setTimeout("HIDE(otticaRetinaSinistra4)",12910);
 }
 time();
